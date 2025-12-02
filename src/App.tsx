@@ -4,11 +4,76 @@ import { cn } from "./lib/utils";
 import { Input } from "./components/ui/input";
 import { Textarea } from "./components/ui/textarea";
 import { toast, Toaster } from "sonner";
-
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "./components/ui/carousel";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "./components/ui/popover";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./components/ui/dialog";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogTrigger } from "./components/ui/alert-dialog";
+import { AlertDialogTitle } from "@radix-ui/react-alert-dialog";
+import {Baby} from 'lucide-react'
 function App() {
   const isActive = true;
   return (
     <div className="p-5">
+      <Baby className="h-10 w-10 fill-red-500"/>
+
+      <AlertDialog>
+        <AlertDialogTrigger>Open Alert Dialog</AlertDialogTrigger>
+        <AlertDialogContent>
+          <AlertDialogTitle>Title</AlertDialogTitle>
+          <AlertDialogDescription>Description</AlertDialogDescription>
+          <div>body</div>
+          <div>
+            <AlertDialogAction onClick={()=> console.log("Action")}>Action</AlertDialogAction>
+            <AlertDialogCancel onClick={()=> console.log("Cancel")}>Cancel</AlertDialogCancel>
+          </div>
+        </AlertDialogContent>
+      </AlertDialog>
+                 
+      <Dialog>
+        <DialogTrigger>Open Dialog</DialogTrigger>
+        <DialogContent>
+          <DialogTitle>Title</DialogTitle>
+          <DialogDescription>Description</DialogDescription>
+          <div>Body</div>
+        </DialogContent>
+      </Dialog>
+
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button>Open</Button>
+        </PopoverTrigger>
+        <PopoverContent>Content!</PopoverContent>
+      </Popover>
+
+      <Carousel className="mx-10">
+        <CarouselContent>
+          <CarouselItem className="basis-1/3">1</CarouselItem>
+          <CarouselItem className="basis-1/3">2</CarouselItem>
+          <CarouselItem className="basis-1/3">3</CarouselItem>
+          <CarouselItem className="basis-1/3">4</CarouselItem>
+          <CarouselItem className="basis-1/3">5</CarouselItem>
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+
       <Toaster />
 
       <Textarea />
@@ -17,8 +82,8 @@ function App() {
 
       <Button
         onClick={() => {
-          toast("토스트 메세지",{
-            position:"top-center"
+          toast("토스트 메세지", {
+            position: "top-center",
           });
         }}
       >
