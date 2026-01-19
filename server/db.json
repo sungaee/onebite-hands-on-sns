@@ -1,14 +1,9 @@
 {
   "todos": [
     {
-      "id": "1",
-      "content": "Todo 1",
+      "id": "d968",
+      "content": "213213",
       "isDone": true
-    },
-    {
-      "id": "b0d2",
-      "content": "123",
-      "isDone": false
     }
   ]
 }
